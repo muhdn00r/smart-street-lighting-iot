@@ -4,6 +4,8 @@ This repository contains the complete firmware for a smart urban lighting system
 
 ## System Overview
 
+![Dashboard Preview](dashboard_preview.png)
+
 The project is divided into two primary components:
 
 ### 1. Sensor Node (Arduino)
