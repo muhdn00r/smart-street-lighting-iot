@@ -2,10 +2,8 @@
 #define PROC_DATA_H
 
 #include <Arduino.h>
-#include <SoftwareSerial.h>
-#include "PinDeclaration.h"
-#include "SendData.h"
 
+// Function declarations for processing incoming LoRa data
 void clearData();
 void processPacket(String packet);
 void ProcData(String incomingData);

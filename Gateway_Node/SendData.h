@@ -2,10 +2,9 @@
 #define SEND_DATA_H
 
 #include <Arduino.h>
-#include <ESP8266HTTPClient.h>
-#include "PinDeclaration.h"
-#include "ProcData.h"
+#include <ESP8266WiFi.h>
 
+// Function declaration for sending data to the cloud
 void sendMotionData(String payload);
 
 #endif

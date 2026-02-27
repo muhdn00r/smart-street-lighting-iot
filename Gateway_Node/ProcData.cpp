@@ -1,8 +1,7 @@
 #include "ProcData.h"
+#include "PinDeclaration.h"
 
 String buffer = ""; // Buffer to store incoming data
-String payload;
-String data[13];
 
 void clearData() {
   for (int i = 0; i < 13; i++) {

@@ -1,30 +1,35 @@
-# IoT Smart Street Lighting: LoRa-to-WiFi Gateway
+# IoT Smart Street Lighting: Full-Stack Embedded System
 
-A modular C++ firmware for an ESP8266-based Gateway that bridges local sensor networks (LoRa) with cloud infrastructure (WiFi/HTTP). This system was developed as part of an Integrated Design Project (IDP) to optimize urban energy consumption through real-time motion detection and adaptive lighting.
+This repository contains the complete firmware for a smart urban lighting system developed as an Integrated Design Project (IDP). The system uses a multi-node architecture to optimize energy consumption through real-time motion detection and adaptive dimming.
 
-## System Architecture
-- Sensor Nodes: Distributed Arduino-based nodes detecting vehicle/pedestrian movement via PIR/Ultrasonic sensors.
-- Communication: Long-range, low-power data transmission using LoRa (UART).
-- Gateway (This Repo): An ESP8266 node that intercepts LoRa packets, parses the data, and forwards it to a centralized monitoring dashboard via RESTful API (HTTPS).
+## System Overview
 
-## Technical Highlights
-- Modular C++ Architecture: Organized into PinDeclaration, ProcData, and SendData modules for high maintainability and separation of concerns.
-- Hybrid Communication: Seamlessly bridges Serial/UART (LoRa) and TCP/IP (WiFi) stacks.
-- Data Integrity: Implemented packet parsing and validation logic (ProcData) to ensure reliable data transmission from field sensors.
-- Energy Optimization: Designed to support sensor-driven "Dimming-on-Idle" logic, reducing street lighting energy waste by up to 40%.
+The project is divided into two primary components:
 
-## Hardware and Protocols
-- Microcontroller: ESP8266 (NodeMCU)
-- Wireless: LoRa (OSOYOO UART Module), WiFi (802.11 b/g/n)
-- Protocols: UART, HTTP/JSON, SPI
-- Development: C++ (Arduino Framework)
+### 1. Sensor Node (Arduino)
+Located in the `Sensor_Node/` directory, this firmware runs on distributed Arduino nodes equipped with PIR motion sensors and LDR light sensors.
+- Motion Detection: Monitors vehicle and pedestrian movement.
+- Local Processing: Analyzes environmental light levels to determine if lighting is required.
+- Communication: Transmits sensor data to the Gateway via LoRa (Long Range) wireless protocol.
 
-## Project Structure
-- final_upload_with_receive.ino: Main execution loop and hardware initialization.
-- ProcData.cpp/h: Logic for parsing incoming LoRa packets and preparing JSON payloads.
-- SendData.cpp/h: WiFi management and HTTP POST orchestration.
-- PinDeclaration.h: Hardware abstraction layer for easy pin mapping.
+### 2. Gateway Node (ESP8266)
+Located in the `Gateway_Node/` directory, this firmware runs on a central ESP8266 node that bridges the local sensor network to the cloud.
+- LoRa Reception: Intercepts and parses data packets from multiple Sensor Nodes.
+- WiFi Connectivity: Connects to local network infrastructure.
+- Cloud Integration: Forwards processed data to a centralized monitoring dashboard via RESTful API (HTTPS).
+
+## Technical Features
+- Multi-Protocol Bridge: Seamlessly integrates LoRa (UART) and WiFi (TCP/IP) communication stacks.
+- Modular C++ Design: Uses object-oriented principles to separate hardware abstraction, data processing, and communication logic.
+- Energy Optimization: Supports sensor-driven dimming logic to reduce energy waste during idle periods.
+- Reliable Data Parsing: Implemented robust packet validation to ensure data integrity across wireless links.
+
+## Hardware and Technologies
+- Microcontrollers: ESP8266 (NodeMCU), Arduino Uno/Nano.
+- Wireless: LoRa (OSOYOO UART Module), WiFi (802.11 b/g/n).
+- Protocols: UART, HTTP, JSON, SPI.
+- Development Environment: C++ (Arduino Framework).
 
 ---
-Developed by Muhammad Noor Bin Nor Affandi
+Developed by Muhammad Noor | Afif Amran | Shazriena
 Computer Engineering Student | Universiti Teknikal Malaysia Melaka (UTeM)

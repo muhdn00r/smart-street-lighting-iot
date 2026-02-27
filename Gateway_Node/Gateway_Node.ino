@@ -5,7 +5,7 @@
 #include "ProcData.h"
 #include "SendData.h"
 
-SoftwareSerial LoRa (TX, RX);
+SoftwareSerial LoRa (RX, TX);
 
 String packet;
 
